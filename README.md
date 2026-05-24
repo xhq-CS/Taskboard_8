@@ -2,8 +2,7 @@
 
 ## Description
 
-For Homework 8 I added the final backend improvements to the Campus Task Board API, it being security and final enhancements.  
-The final version now includes Spring Security, CORS configuration, API versioning, Swagger/OpenAPI documentation, integration tests, and custom priority validation.
+For Homework 8 I added the final backend improvements to the Campus Task Board API, it being security and final enhancements. The final version now includes Spring Security, CORS configuration, API versioning, Swagger/OpenAPI documentation, integration tests, and custom priority validation.
 
 ## New Features
 
