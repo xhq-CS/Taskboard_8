@@ -130,3 +130,23 @@ POST /api/tasks
 Response:
 
   "message": "Input validation failed",
+
+## Deliverable Questions
+
+How Spring Security works and how I implemented security (CORS, endpoint protection):
+- Spring Security is responsible for determining which endpoints can be accessed without having to authenticate. In my case, I allowed endpoints such as task endpoints, versioned task endpoints, H2 Console, actuator health endpoint, Swagger UI, and OpenAPI documentation endpoints.
+- I also disabled CSRF because this is a REST API being tested with Postman and Swagger. CORS is configured to allow requests from localhost:3000 and localhost:8080.
+
+How API versioning works:
+- The updated taskboard endpoints are /api/v1/tasks. Versioning an API is helpful because it allows adding more versions of the same API without affecting old routes. In this case, I am able to hit GET /api/v1/tasks, which gives me my tasks list.
+
+One challenge you faced while working on the homework 8 project:
+- Another issue that occurred was making sure Swagger worked correctly after including Spring Security. In this case, some routes in Swagger were blocked, and thus the documentation site wouldn't open. To fix this problem, I updated SecurityConfig to include Swagger UI and OpenAPI docs routes. 
+- The takeaway from this experience is that whenever I add security to my application, I should keep in mind that each route used in the project should be allowed through. Security is helpful, yet it can prevent access to other necessary features.
+
+One thing you learned about securing APIs and why it matters:
+- One thing I learned about API security is that it doesn’t mean locking out users but regulating whether or not certain routes are supposed to be public or private. This matters because an API can include sensitive endpoints, development utilities, as well as database management consoles.
+- If security is too permissive, the application will end up disclosing what it shouldn’t. But on the other hand, if security is too tight, it can lock out useful components such as Swagger UI, H2 Database Console, or even entry to the documentation.
+
+Overall reflection on the homework series:
+- Overall, the most useful thing I learned was how the different layers interacted and the responsibility of each layer. The taskcontroller receives requests, the taskservice performs operations on those taskrequests, the repository connects with the database, and the model defines the model. The only thing I wish to do differently while completing this assignment is doing tests for all the features earlier and updating the README file in each homework instead of leaving it last on my plate.
